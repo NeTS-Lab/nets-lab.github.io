@@ -1,7 +1,0 @@
-
-User-agent: *
-Allow: /
-
-Sitemap: https://nets-lab.github.io/sitemap-index.xml
-
-
