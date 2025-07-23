@@ -15,6 +15,7 @@ import icon from "astro-icon";
 
 export default defineConfig({
   site: "https://nets-lab.github.io",
+  base: "/",
   output: 'static',
   integrations: [
     preact(),
