@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProfileCard from "../components/Cards/Cards";
+---
+
+<Layout pageTitle="People – NETs Lab" description="Meet the team behind the Neurolinguistics, Computational Linguistics, and Theoretical Syntax Lab.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <!-- Coordinator -->
+   
+    
+
+    <!-- Team Members -->
+    <h2 class="text-3xl font-semibold text-white text-center mb-14">Research Team</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-24">
+      <div class="flex justify-center">
+        <ProfileCard client:load
+        name="Cristiano Chesi"
+        title="Principal Investigator"
+        status="IUSS Pavia, University of Siena"
+        contactText="Contact"
+        avatarUrl="/images/people/cristiano.png"
+        contactUrl="mailto:cristiano.chesi@iusspavia.it"
+        showUserInfo={true}
+        enableTilt={true}
+        enableMobileTilt={false}
+        onContactClick={() => console.log('Contact clicked')}
+      />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Matilde Barbini"
+          title="PhD student"
+          status="University of Geneva"
+          contactText="Contact"
+          avatarUrl="/images/people/matilde.png"
+          contactUrl="mailto:alice@example.com"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Veronica Bressan"
+          title="Postdoc"
+          status="Oxford"
+          contactText="Contact"
+          avatarUrl="/images/people/veronica.png"
+          contactUrl="mailto:alice@example.com"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Guido Formichi"
+          title="PhD student"
+          status="IUSS Pavia"
+          contactText="Contact"
+          avatarUrl="/images/people/guido.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Achille Fusco"
+          title="Postdoc"
+          handle="sofia.dl"
+          status="University of Florence"
+          contactText="Contact"
+          avatarUrl="/images/people/achille.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Sofia Neri"
+          title="PhD Student"
+          
+          status="IUSS Pavia"
+          contactText="Contact"
+          avatarUrl="/images/people/sofia.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Maria Letizia Piccini Bianchessi"
+          title="Independent Researcher"
+
+          status="Independent Researcher"
+          contactText="Contact"
+          avatarUrl="/images/people/letizia.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Sarah Rossi"
+          title="PhD Student"
+          
+          status="IUSS Pavia"
+          contactText="Contact"
+          avatarUrl="/images/people/sarah.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Tommaso Sgrizzi"
+          title="PhD student"
+          handle="chi.neri"
+          status="IUSS Pavia"
+          contactText="Contact"
+          avatarUrl="/images/people/tom.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+      <div class="flex justify-center">
+        <ProfileCard client:load
+          name="Asya Zanollo"
+          title="PhD student"
+          status="IUSS Pavia"
+          contactText="Contact"
+          avatarUrl="/images/people/asya.png"
+          showUserInfo={true}
+          enableTilt={true}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

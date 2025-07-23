@@ -1,0 +1,50 @@
+---
+import GooeyNav from '../Nave/Nave.tsx';
+const items = [
+  { label: "Home", href: "/" },
+  { label: "People", href: "/people" },
+  { label: "Publications", href: "/publications" },
+];
+// Current path
+const currentPath = Astro.url.pathname; // or use Astro.request.url
+// Find index of item with matching href
+const activeIndex = items.findIndex(item => item.href === currentPath);
+---
+
+<nav x-data="{ open: false }" class="w-full">
+  <!-- Desktop Nav -->
+  <div class="hidden md:flex w-full justify-center">
+    <GooeyNav client:load
+      items={items}
+      initialActiveIndex={activeIndex === -1 ? 0 : activeIndex}
+      particleCount={15}
+      particleDistances={[90, 10]}
+      particleR={100}
+      
+      animationTime={600}
+      timeVariance={300}
+      colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+    />
+  </div>
+  <!-- Mobile Nav -->
+  <div class="flex md:hidden w-full justify-center items-center px-4 h-16">
+    <button @click="open = !open" aria-label="Toggle menu" class="focus:outline-none opacity-70 flex items-center justify-center">
+      <svg class="w-8 h-8 opacity-70 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+  <div x-show="open" class="md:hidden w-full bg-white dark:bg-zinc-900 absolute left-0 top-16 z-50 shadow-lg transition-all">
+    <ul class="flex flex-col items-center gap-4 py-4">
+      <li>
+        <a href="#" class="text-black dark:text-white text-lg font-semibold hover:text-mint-500 transition-colors" @click="open = false">Home</a>
+      </li>
+      <li>
+        <a href="#" class="text-black dark:text-white text-lg font-semibold hover:text-mint-500 transition-colors" @click="open = false">People</a>
+      </li>
+      <li>
+        <a href="#" class="text-black dark:text-white text-lg font-semibold hover:text-mint-500 transition-colors" @click="open = false">Publications</a>
+      </li>
+    </ul>
+  </div>
+</nav>

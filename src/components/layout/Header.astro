@@ -1,0 +1,20 @@
+---
+import ThemeIcon from "../ui/ThemeIcon.astro";
+import Social from "../ui/Social.astro";
+import Navbar from './Navbar.astro';
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const { instagram, instagramIconName } = staticData.data;
+---
+
+<header class="w-full flex items-center justify-between px-8 py-4 h-20">
+  <div class="flex-1"></div>
+  <div class="flex-1 flex justify-center">
+    <Navbar />
+  </div>
+  <div class="flex-1 flex justify-end items-center gap-4 text-xl">
+    <Social link={instagram} iconName={instagramIconName} />
+    <ThemeIcon />
+  </div>
+</header>

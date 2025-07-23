@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroIndex from "../components/portfolio/HeroIndex.astro";
+import Contact from "../components/portfolio/Contact.astro";
+import ListProjects from "../components/portfolio/ListProjects.astro";
+import { getCollection } from "astro:content";
+import RippleGrid from '../components/RippledGrid/RippleGrid';
+const [staticData] = await getCollection("staticData");
+const { pageTitle, pageDescription, OGImage } = staticData.data;
+import TextType from '../components/TextType/TextType';
+import VariableProximity from '../components/VariableProximity/VariableProximity';
+---
+
+<Layout
+  pageTitle={pageTitle}
+  description={pageDescription}
+  ogimage={{ alt: OGImage.alt, url: OGImage.url }}
+>
+<div class="relative w-screen h-screen">
+  <div class="absolute inset-0 w-full h-full z-0">
+    <RippleGrid
+      client:load
+      enableRainbow={true}
+      gridColor="#6cccf0"
+      rippleIntensity={0.05}
+      gridSize={15}
+      gridThickness={15}
+      mouseInteraction={true}
+      mouseInteractionRadius={1.2}
+      opacity={0.8}
+    />
+  </div>
+  <div
+  class="absolute inset-0 flex justify-center items-center z-10 pointer-events-none"
+>
+  <img
+    src="/nets-white.png"
+    alt="NETs Lab Logo"
+    class="h-72 md:h-80 drop-shadow-2xl transition-transform duration-75 ease-out pointer-events-none"
+    id="tilting-logo"
+  />
+</div>
+  <!-- 
+<div class="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
+  <TextType
+    client:load
+    text={[
+      "NETs Lab",
+      "Neurolinguistics\nComputational Linguistics\nand Theoretical Syntax"
+    ]}
+    typingSpeed={75}
+    pauseDuration={1500}
+    showCursor={true}
+    cursorCharacter="|"
+    className="text-4xl md:text-6xl font-bold text-center"
+  />
+</div> 
+-->
+
+</div>
+</Layout>
+<script>
+  const logo = document.getElementById("tilting-logo");
+
+  document.addEventListener("mousemove", (e) => {
+    const { innerWidth, innerHeight } = window;
+    const centerX = innerWidth / 2;
+    const centerY = innerHeight / 2;
+
+    // Increased tilt intensity by reducing divisor from 60 → 30
+    const rotateX = (e.clientY - centerY) / 30;
+    const rotateY = (e.clientX - centerX) / 30;
+
+    if (logo) {
+      logo.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg)`;
+    }
+  });
+
+  document.addEventListener("mouseleave", () => {
+    if (logo) {
+      logo.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    }
+  });
+</script>
+

@@ -1,0 +1,35 @@
+---
+// src/pages/publications.astro
+import Layout from "../layouts/Layout.astro";
+import PublicationCard from "../components/publication_cards/PublicationCards";
+import Magnet from '../components/Magnet/Magnet'
+
+---
+
+<Layout pageTitle="Publications – NETs Lab" description="Explore our team’s recent research contributions.">
+  <section class="max-w-4xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-semibold text-white text-center mb-14">Recent Publications</h2>
+    
+    <div class="flex flex-col gap-10">
+    <Magnet client:load padding={50} disabled={false} magnetStrength={50}>  
+      <PublicationCard
+        title="Different Ways to Forget: Linguistic Gates in Recurrent Neural Networks"
+        authors="Cristiano Chesi, Veronica Bressan, Matilde Barbini, Achille Fusco, Maria Letizia Piccini Bianchessi, Sofia Neri, Sarah Rossi, Tommaso Sgrizzi"
+        venue="Proceedings of The 2nd BabyLM Challenge at the 28th Conference on Computational Natural Language Learning"
+        paperUrl="https://example.com/paper2.pdf"
+        codeUrl="https://github.com/example/code2"
+      />
+    </Magnet>
+    <Magnet client:load padding={50} disabled={false} magnetStrength={50}>  
+
+      <PublicationCard
+        title="Recurrent networks are (linguistically) better? An experiment on small-LM training on child-directed speech in Italian."
+        authors="Achille Fusco, Matilde Barbini, Maria Letizia Piccini Bianchessi, Veronica Bressan, Sofia Neri, Sarah Rossi, Tommaso Sgrizzi, Cristiano Chesi"
+        venue="Proceedings of CLiC-it 2024: Tenth Italian Conference on Computational Linguistics"
+        paperUrl="https://aclanthology.org/2024.conll-babylm.9/"
+        codeUrl="https://github.com/cristianochesi/babylm-2024"
+      />
+    </Magnet>
+    </div>
+  </section>
+</Layout>
